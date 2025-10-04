@@ -144,6 +144,11 @@
           "model": "claude-sonnet-4"
         }
       }
+    },
+    "AUGGIE": {
+      "DEFAULT": {
+        "AUGGIE": {}
+      }
     }
   }
 }

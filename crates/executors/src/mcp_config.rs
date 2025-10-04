@@ -294,7 +294,7 @@ impl CodingAgent {
 
         let adapter = match self {
             CodingAgent::ClaudeCode(_) | CodingAgent::Amp(_) => Passthrough,
-            CodingAgent::QwenCode(_) | CodingAgent::Gemini(_) => Gemini,
+            CodingAgent::Auggie(_) | CodingAgent::QwenCode(_) | CodingAgent::Gemini(_) => Gemini,
             CodingAgent::Cursor(_) => Cursor,
             CodingAgent::Codex(_) => Codex,
             CodingAgent::Opencode(_) => Opencode,

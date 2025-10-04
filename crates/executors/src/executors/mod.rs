@@ -14,14 +14,15 @@ use workspace_utils::msg_store::MsgStore;
 
 use crate::{
     executors::{
-        amp::Amp, claude::ClaudeCode, codex::Codex, copilot::Copilot, cursor::Cursor,
-        gemini::Gemini, opencode::Opencode, qwen::QwenCode,
+        amp::Amp, auggie::Auggie, claude::ClaudeCode, codex::Codex, copilot::Copilot,
+        cursor::Cursor, gemini::Gemini, opencode::Opencode, qwen::QwenCode,
     },
     mcp_config::McpConfig,
 };
 
 pub mod acp;
 pub mod amp;
+pub mod auggie;
 pub mod claude;
 pub mod codex;
 pub mod copilot;
@@ -72,6 +73,7 @@ pub enum ExecutorError {
 pub enum CodingAgent {
     ClaudeCode,
     Amp,
+    Auggie,
     Gemini,
     Codex,
     Opencode,
@@ -127,6 +129,7 @@ impl CodingAgent {
         match self {
             Self::ClaudeCode(_) => vec![BaseAgentCapability::SessionFork],
             Self::Amp(_) => vec![BaseAgentCapability::SessionFork],
+            Self::Auggie(_) => vec![BaseAgentCapability::SessionFork],
             Self::Codex(_) => vec![BaseAgentCapability::SessionFork],
             Self::Gemini(_) => vec![BaseAgentCapability::SessionFork],
             Self::QwenCode(_) => vec![BaseAgentCapability::SessionFork],

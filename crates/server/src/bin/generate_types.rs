@@ -75,6 +75,7 @@ fn generate_types_content() -> String {
         executors::executors::gemini::Gemini::decl(),
         executors::executors::gemini::GeminiModel::decl(),
         executors::executors::amp::Amp::decl(),
+        executors::executors::auggie::Auggie::decl(),
         executors::executors::codex::Codex::decl(),
         executors::executors::codex::SandboxMode::decl(),
         executors::executors::codex::ReasoningEffort::decl(),
@@ -163,6 +164,10 @@ fn generate_schemas() -> Result<HashMap<&'static str, String>, serde_json::Error
         (
             "amp",
             generate_json_schema::<executors::executors::amp::Amp>()?,
+        ),
+        (
+            "auggie",
+            generate_json_schema::<executors::executors::auggie::Auggie>()?,
         ),
         (
             "claude_code",
