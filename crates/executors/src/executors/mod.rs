@@ -15,7 +15,7 @@ use workspace_utils::msg_store::MsgStore;
 use crate::{
     executors::{
         amp::Amp, claude::ClaudeCode, codex::Codex, copilot::Copilot, cursor::Cursor,
-        gemini::Gemini, opencode::Opencode, qwen::QwenCode,
+        factory_droid::FactoryDroid, gemini::Gemini, opencode::Opencode, qwen::QwenCode,
     },
     mcp_config::McpConfig,
 };
@@ -26,6 +26,7 @@ pub mod claude;
 pub mod codex;
 pub mod copilot;
 pub mod cursor;
+pub mod factory_droid;
 pub mod gemini;
 pub mod opencode;
 pub mod qwen;
@@ -78,6 +79,7 @@ pub enum CodingAgent {
     Cursor,
     QwenCode,
     Copilot,
+    FactoryDroid,
 }
 
 impl CodingAgent {
@@ -130,6 +132,7 @@ impl CodingAgent {
             Self::Codex(_) => vec![BaseAgentCapability::SessionFork],
             Self::Gemini(_) => vec![BaseAgentCapability::SessionFork],
             Self::QwenCode(_) => vec![BaseAgentCapability::SessionFork],
+            Self::FactoryDroid(_) => vec![BaseAgentCapability::SessionFork],
             Self::Opencode(_) | Self::Cursor(_) | Self::Copilot(_) => vec![],
         }
     }
