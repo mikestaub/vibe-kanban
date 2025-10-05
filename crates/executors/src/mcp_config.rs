@@ -293,7 +293,9 @@ impl CodingAgent {
         use Adapter::*;
 
         let adapter = match self {
-            CodingAgent::ClaudeCode(_) | CodingAgent::Amp(_) => Passthrough,
+            CodingAgent::ClaudeCode(_) | CodingAgent::Amp(_) | CodingAgent::FactoryDroid(_) => {
+                Passthrough
+            }
             CodingAgent::QwenCode(_) | CodingAgent::Gemini(_) => Gemini,
             CodingAgent::Cursor(_) => Cursor,
             CodingAgent::Codex(_) => Codex,
