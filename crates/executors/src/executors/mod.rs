@@ -28,6 +28,7 @@ pub mod copilot;
 pub mod cursor;
 pub mod gemini;
 pub mod opencode;
+pub mod plugin_bridge;
 pub mod qwen;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, TS)]
